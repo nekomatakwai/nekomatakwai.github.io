@@ -1,0 +1,40 @@
+[
+    {
+        "nimi": "眞雪",
+        "pali": [
+            "President of Nekomatakwai",
+            "Menhera.org founder",
+            "Cyphanese Team"
+        ],
+        "nasin": {
+            "GitHub": "https://github.com/Majukyi",
+            "Website": "https://majukyi.github.io/",
+            "Twitter @nekw0": "https://twitter.com/intent/user?user_id=1124491733037752320"
+        }
+    },
+    {
+        "nimi": "真空",
+        "pali": [
+            "Menhera.org founder",
+            "Nekomatakwai member",
+            "Cyphanese Team"
+        ],
+        "nasin": {
+            "GitHub": "https://github.com/metastable-void",
+            "Website": "https://www.exec.su/",
+            "Twitter @masora_m": "https://twitter.com/intent/user?user_id=847315328744865793"
+        }
+    },
+    {
+        "nimi": "ゐてるま",
+        "pali": [
+            "Menhera.org founder",
+            "Cyphanese Team (lead)"
+        ],
+        "nasin": {
+            "GitHub": "https://github.com/anosatsuk124",
+            "Website": "https://anosatsuk124.github.io/philos_psych/",
+            "Twitter @viterum_24": "https://twitter.com/intent/user?user_id=1163505248649928704"
+        }
+    }
+]

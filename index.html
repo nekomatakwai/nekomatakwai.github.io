@@ -78,6 +78,39 @@
             inline-size: 50vmin;
         }
     </style>
+    <script type="module">
+        (async () => {
+            //
+            const res = await fetch('/soweli.json');
+            const soweliMute = res.json();
+            for (const soweli of soweliMute) {
+                const section = document.querySelector('#soweli-mute')
+                .appendChild(document.createElement('section'))
+                section.classList.add('soweli');
+
+                const h2 = section.appendChild(document.createElement('h2'));
+                h2.textContent = soweli.nimi;
+                h2.lang = 'ja';
+
+                const tags = section.appendChild(document.createElement('ul'));
+                tags.classList.add('tags');
+                for (const tag of (soweli.pali || [])) {
+                    const li = tags.appendChild(document.createElement('li'));
+                    li.textContent = tag;
+                }
+
+                const nav = section.appendChild(document.createElement('nav'));
+                nav.classList.add('nasin');
+                const navUl = nav.appendChild(document.createElement('ul'));
+                for (const key of Reflect.ownKeys(soweli.nasin)) {
+                    const li = navUl.appendChild(document.createElement('li'));
+                    const a = li.appendChild('a');
+                    a.href = soweli.nasin[key];
+                    a.textContent = key;
+                }
+            }
+        })();
+    </script>
 </head>
 <body id="nekomatakwai-top">
     <header id="lawa">
@@ -684,51 +717,6 @@
                 fill="#000" />
         </svg>
     </header>
-    <main id="soweli-mute">
-        <section class="soweli">
-            <h2 lang="ja" xml:lang="ja">眞雪</h2>
-            <ul class="tags">
-                <li>President of Nekomatakwai</li>
-                <li>Menhera.org founder</li>
-                <li>Cyphanese Team</li>
-            </ul>
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/Majukyi">GitHub</a></li>
-                    <li><a href="https://majukyi.github.io/">Website</a></li>
-                    <li><a href="https://twitter.com/intent/user?user_id=1124491733037752320">Twitter @nekw0</a></li>
-                </ul>
-            </nav>
-        </section>
-        <section class="soweli">
-            <h2 lang="ja" xml:lang="ja">真空</h2>
-            <ul class="tags">
-                <li>Menhera.org founder</li>
-                <li>Cyphanese Team</li>
-                <li>Nekomatakwai member</li>
-            </ul>
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/metastable-void">GitHub</a></li>
-                    <li><a href="https://www.exec.su/">Website</a></li>
-                    <li><a href="https://twitter.com/intent/user?user_id=847315328744865793">Twitter @masora_m</a></li>
-                </ul>
-            </nav>
-        </section>
-        <section class="soweli">
-            <h2 lang="ja" xml:lang="ja">ゐてるま</h2>
-            <ul class="tags">
-                <li>Menhera.org founder</li>
-                <li>Cyphanese Team (lead)</li>
-            </ul>
-            <nav>
-                <ul>
-                    <li><a href="https://github.com/anosatsuk124">GitHub</a></li>
-                    <li><a href="https://anosatsuk124.github.io/philos_psych/">Website</a></li>
-                    <li><a href="https://twitter.com/intent/user?user_id=1163505248649928704">Twitter @viterum_24</a></li>
-                </ul>
-            </nav>
-        </section>
-    </main>
+    <main id="soweli-mute"></main>
 </body>
 </html>
