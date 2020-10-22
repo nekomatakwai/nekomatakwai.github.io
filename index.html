@@ -82,7 +82,7 @@
         (async () => {
             //
             const res = await fetch('/soweli.json');
-            const soweliMute = res.json();
+            const soweliMute = await res.json();
             for (const soweli of soweliMute) {
                 const section = document.querySelector('#soweli-mute')
                 .appendChild(document.createElement('section'))
