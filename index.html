@@ -104,7 +104,7 @@
                 const navUl = nav.appendChild(document.createElement('ul'));
                 for (const key of Reflect.ownKeys(soweli.nasin)) {
                     const li = navUl.appendChild(document.createElement('li'));
-                    const a = li.appendChild('a');
+                    const a = li.appendChild(document.createElement('a'));
                     a.href = soweli.nasin[key];
                     a.textContent = key;
                 }
