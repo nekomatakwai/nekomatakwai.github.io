@@ -25,6 +25,10 @@ input.addEventListener('change', ev => {
 const value = ev.target.value;
 const result = value.replace(/(.)/gu, '$1\u200b');
 output.value = result;
-output.focus();
+navigation.clipboard.writeText(result).then(() => {
+  console.log('copied text to clipboard!');
+}).catch(e => {
+  console.error(e);
+});
 });
 </script>
