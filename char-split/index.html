@@ -22,19 +22,26 @@ height: 40vh;
 <h1>検索避けテキストの作成</h1>
 <p>入力：</p>
 <textarea id='input' autocomplete='off'></textarea>
+<p><button id='tweet'>ツイートする</button></p>
 <p>出力：</p>
 <textarea readonly='' id='output'></textarea>
 <script>
-const input = document.querySelector('#input');
-const output = document.querySelector('#output');
-input.addEventListener('change', ev => {
-const value = ev.target.value;
-const result = value.replace(/(.)/gu, '$1\u200b');
-output.value = result;
-navigation.clipboard.writeText(result).then(() => {
-  console.log('copied text to clipboard!');
-}).catch(e => {
-  console.error(e);
-});
-});
+  const input = document.querySelector('#input');
+  const output = document.querySelector('#output');
+  const tweet = document.querySelector('#tweet');
+  const split = value => value.replace(/(.)/gu, '$1\u200b');
+  input.addEventListener('change', ev => {
+    const value = ev.target.value;
+    const result = split(value);
+    output.value = result;
+    navigation.clipboard.writeText(result).then(() => {
+      console.log('copied text to clipboard!');
+    }).catch(e => {
+      console.error(e);
+    });
+  });
+  tweet.addEventListener('click', ev => {
+    const result = split(input.value);
+    location.href = 'https://twitter.com/intent/tweet?url=https://nekomatakwai.github.io/char-split/&text=' + encodeURIComponent(result);
+  });
 </script>
