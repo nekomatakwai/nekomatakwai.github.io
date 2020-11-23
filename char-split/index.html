@@ -1,0 +1,30 @@
+<!doctype html>
+<meta charset='utf-8'/>
+<title>検索避けテクストの作成</title>
+<style>
+textarea {
+font: inherit;
+display: block;
+border: solid 0.125em #ccc;
+border-radius: 0;
+box-sizing: border-box;
+resize: none;
+width: 100%;
+height: 40%;
+}
+</style>
+<h1>検索避けテキストの作成</h1>
+<p>入力：</p>
+<textarea id='input'></textarea>
+<p>出力：</p>
+<textarea readonly='' id='output'></textarea>
+<script>
+const input = document.querySelector('#input');
+const output = document.querySelector('#output');
+input.addEventListener('change', ev => {
+const value = ev.target.value;
+const result = value.replace(/./gu, '$0\u200b');
+output.value = result;
+output.focus();
+});
+</script>
