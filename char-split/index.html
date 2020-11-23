@@ -23,7 +23,7 @@ const input = document.querySelector('#input');
 const output = document.querySelector('#output');
 input.addEventListener('change', ev => {
 const value = ev.target.value;
-const result = value.replace(/./gu, '$0\u200b');
+const result = value.replace(/(.)/gu, '$1\u200b');
 output.value = result;
 output.focus();
 });
